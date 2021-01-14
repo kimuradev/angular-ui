@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'ui-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css'],
+  styleUrls: ['./button.component.scss'],
 })
 export default class ButtonComponent {
   /**
@@ -39,10 +39,8 @@ export default class ButtonComponent {
   handleClick = new EventEmitter<Event>();
 
   public get classes(): string[] {
-    const mode = this.primary
-      ? 'storybook-button--primary'
-      : 'storybook-button--secondary';
+    const mode = this.primary ? 'button--primary' : 'button--secondary';
 
-    return ['storybook-button', `storybook-button--${this.size}`, mode];
+    return ['button', `button--${this.size}`, mode];
   }
 }

@@ -25,25 +25,25 @@
       <h1>Acme</h1>
     </div>
     <div>
-      <storybook-button
+      <ui-button
         *ngIf="user"
         size="small"
         (onClick)="logout.emit($event)"
         label="Log out"
-      ></storybook-button>
-      <storybook-button
+      ></ui-button>
+      <ui-button
         *ngIf="!user"
         size="small"
         (onClick)="login.emit($event)"
         label="Log in"
-      ></storybook-button>
-      <storybook-button
+      ></ui-button>
+      <ui-button
         *ngIf="!user"
         primary
         size="small"
         (onClick)="createAccount.emit($event)"
         label="Sign up"
-      ></storybook-button>
+      ></ui-button>
     </div>
   </div>
 </header>

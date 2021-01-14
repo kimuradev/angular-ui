@@ -71,7 +71,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-5cf31564fcd91c7f8b5cbf01724a52c9",
+            "id": "component-ButtonComponent-31628cc70eb49d9a9afce5f4e7607873",
             "file": "projects/app/src/lib/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -80,7 +80,7 @@
             "providers": [],
             "selector": "ui-button",
             "styleUrls": [
-                "./button.component.css"
+                "./button.component.scss"
             ],
             "styles": [],
             "templateUrl": [
@@ -116,7 +116,7 @@
             ],
             "outputsClass": [
                 {
-                    "name": "click",
+                    "name": "handleClick",
                     "defaultValue": "new EventEmitter<Event>()",
                     "description": "<p>Optional click handler</p>\n",
                     "line": 39,
@@ -130,12 +130,12 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  click = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary\n      ? 'storybook-button--primary'\n      : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  handleClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary\n      ? 'storybook-button--primary'\n      : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": ".storybook-button {\r\n  font-family: \"Nunito Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\r\n  font-weight: 700;\r\n  border: 0;\r\n  border-radius: 3em;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  line-height: 1;\r\n}\r\n.storybook-button--primary {\r\n  color: white;\r\n  background-color: #1ea7fd;\r\n}\r\n.storybook-button--secondary {\r\n  color: #333;\r\n  background-color: transparent;\r\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\r\n}\r\n.storybook-button--small {\r\n  font-size: 12px;\r\n  padding: 10px 16px;\r\n}\r\n.storybook-button--medium {\r\n  font-size: 14px;\r\n  padding: 11px 20px;\r\n}\r\n.storybook-button--large {\r\n  font-size: 16px;\r\n  padding: 12px 24px;\r\n}\r\n",
-                    "styleUrl": "./button.component.css"
+                    "styleUrl": "./button.component.scss"
                 }
             ],
             "stylesData": "",
@@ -150,11 +150,11 @@
                     }
                 }
             },
-            "templateData": "<button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>\n"
+            "templateData": "<button\n  type=\"button\"\n  (onClick)=\"handleClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>\n"
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-0ea7f21f4dcbfe3f53c454ce71cd48e1",
+            "id": "component-HeaderComponent-700543153930084298c4393c635ef1ec",
             "file": "projects/app/src/lib/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -163,7 +163,7 @@
             "providers": [],
             "selector": "ui-header",
             "styleUrls": [
-                "./header.component.css"
+                "./header.component.scss"
             ],
             "styles": [],
             "templateUrl": [
@@ -180,19 +180,19 @@
             ],
             "outputsClass": [
                 {
-                    "name": "onCreateAccount",
+                    "name": "createAccount",
                     "defaultValue": "new EventEmitter<Event>()",
                     "line": 19,
                     "type": "EventEmitter"
                 },
                 {
-                    "name": "onLogin",
+                    "name": "login",
                     "defaultValue": "new EventEmitter<Event>()",
                     "line": 13,
                     "type": "EventEmitter"
                 },
                 {
-                    "name": "onLogout",
+                    "name": "logout",
                     "defaultValue": "new EventEmitter<Event>()",
                     "line": 16,
                     "type": "EventEmitter"
@@ -205,16 +205,16 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ui-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'ui-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  login = new EventEmitter<Event>();\n\n  @Output()\n  logout = new EventEmitter<Event>();\n\n  @Output()\n  createAccount = new EventEmitter<Event>();\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
-                    "styleUrl": "./header.component.css"
+                    "data": ".wrapper {\r\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\r\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\r\n  padding: 15px 20px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n\r\nsvg {\r\n  display: inline-block;\r\n  vertical-align: top;\r\n}\r\n\r\nh1 {\r\n  font-weight: 900;\r\n  font-size: 20px;\r\n  line-height: 1;\r\n  margin: 6px 0 6px 10px;\r\n  display: inline-block;\r\n  vertical-align: top;\r\n}\r\n\r\nbutton + button {\r\n  margin-left: 10px;\r\n}\r\n",
+                    "styleUrl": "./header.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<header>\n  <div class=\"wrapper\">\n    <div>\n      <svg\n        width=\"32\"\n        height=\"32\"\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n            fill=\"#FFF\"\n          />\n          <path\n            d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n            fill=\"#555AB9\"\n          />\n          <path\n            d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n            fill=\"#91BAF8\"\n          />\n        </g>\n      </svg>\n      <h1>Acme</h1>\n    </div>\n    <div>\n      <storybook-button\n        *ngIf=\"user\"\n        size=\"small\"\n        (onClick)=\"onLogout.emit($event)\"\n        label=\"Log out\"\n      ></storybook-button>\n      <storybook-button\n        *ngIf=\"!user\"\n        size=\"small\"\n        (onClick)=\"onLogin.emit($event)\"\n        label=\"Log in\"\n      ></storybook-button>\n      <storybook-button\n        *ngIf=\"!user\"\n        primary\n        size=\"small\"\n        (onClick)=\"onCreateAccount.emit($event)\"\n        label=\"Sign up\"\n      ></storybook-button>\n    </div>\n  </div>\n</header>\n"
+            "templateData": "<header>\n  <div class=\"wrapper\">\n    <div>\n      <svg\n        width=\"32\"\n        height=\"32\"\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n            fill=\"#FFF\"\n          />\n          <path\n            d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n            fill=\"#555AB9\"\n          />\n          <path\n            d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n            fill=\"#91BAF8\"\n          />\n        </g>\n      </svg>\n      <h1>Acme</h1>\n    </div>\n    <div>\n      <storybook-button\n        *ngIf=\"user\"\n        size=\"small\"\n        (onClick)=\"logout.emit($event)\"\n        label=\"Log out\"\n      ></storybook-button>\n      <storybook-button\n        *ngIf=\"!user\"\n        size=\"small\"\n        (onClick)=\"login.emit($event)\"\n        label=\"Log in\"\n      ></storybook-button>\n      <storybook-button\n        *ngIf=\"!user\"\n        primary\n        size=\"small\"\n        (onClick)=\"createAccount.emit($event)\"\n        label=\"Sign up\"\n      ></storybook-button>\n    </div>\n  </div>\n</header>\n"
         }
     ],
     "modules": [
@@ -331,17 +331,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+                "file": "stories/Header.stories.ts",
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Header.stories.ts",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
+                "file": "stories/Button.stories.ts",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
             }
         ],
         "functions": [],
