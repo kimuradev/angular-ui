@@ -18,7 +18,7 @@
     "paths": {
       "app": [
         "dist/app/app",
-        "dist/app"
+        "       h8itg/app"
       ]
     }
   }

@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
 })
-export default class ButtonComponent {
+export class ButtonComponent {
   /**
    * Is this the principal call to action on the page?
    */
@@ -35,8 +35,9 @@ export default class ButtonComponent {
   /**
    * Optional click handler
    */
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output()
-  handleClick = new EventEmitter<Event>();
+  onClick = new EventEmitter<Event>();
 
   public get classes(): string[] {
     const mode = this.primary ? 'button--primary' : 'button--secondary';
