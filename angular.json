@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app": {
+    "intrack-ui": {
       "projectType": "library",
       "root": "projects/app",
       "sourceRoot": "projects/app/src",
@@ -41,7 +41,7 @@
       }
     }
   },
-  "defaultProject": "app",
+  "defaultProject": "intrack-ui",
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"
