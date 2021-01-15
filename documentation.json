@@ -90,7 +90,7 @@
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-25e6429c85dda5ae3f5ce24ceb52c00b",
+            "id": "component-InputComponent-f886130ab13a677c5d9c3f08c6677352",
             "file": "projects/app/src/lib/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -106,7 +106,14 @@
                 "./input.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "value",
+                    "defaultValue": "'Input'",
+                    "description": "<p>Input contents</p>\n",
+                    "line": 15
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [
@@ -116,7 +123,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12
+                    "line": 19
                 }
             ],
             "hostBindings": [],
@@ -124,7 +131,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'ui-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss']\n})\nexport class InputComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'ui-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n})\nexport class InputComponent implements OnInit {\n  /**\n   * Input contents\n   *\n   * @required\n   */\n  @Input()\n  value = 'Input';\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -137,12 +144,12 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 8
+                "line": 15
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>input works!</p>\n"
+            "templateData": "<input type=\"text\" value=\"value\" />\n"
         }
     ],
     "modules": [
@@ -232,6 +239,14 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
+                "name": "InputField",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Input.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -274,17 +289,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Input.stories.ts",
-                "type": "Story<Input>",
-                "defaultValue": "(args: Input) => ({\r\n  component: Input,\r\n  props: args,\r\n})"
+                "file": "stories/Button.stories.ts",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+                "file": "stories/Input.stories.ts",
+                "type": "Story<Input>",
+                "defaultValue": "(args: Input) => ({\r\n  component: Input,\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -306,6 +321,24 @@
                     "subtype": "variable",
                     "file": "projects/app/src/test.ts",
                     "type": "literal type"
+                }
+            ],
+            "stories/Input.stories.ts": [
+                {
+                    "name": "InputField",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Input.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Input.stories.ts",
+                    "type": "Story<Input>",
+                    "defaultValue": "(args: Input) => ({\r\n  component: Input,\r\n  props: args,\r\n})"
                 }
             ],
             "stories/Button.stories.ts": [
@@ -349,16 +382,6 @@
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
                 }
-            ],
-            "stories/Input.stories.ts": [
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Input.stories.ts",
-                    "type": "Story<Input>",
-                    "defaultValue": "(args: Input) => ({\r\n  component: Input,\r\n  props: args,\r\n})"
-                }
             ]
         },
         "groupedFunctions": {},
@@ -367,7 +390,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 8,
+        "count": 9,
         "status": "low",
         "files": [
             {
@@ -384,8 +407,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "InputComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coveragePercent": 25,
+                "coverageCount": "1/4",
                 "status": "low"
             },
             {
@@ -454,6 +477,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InputField",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
